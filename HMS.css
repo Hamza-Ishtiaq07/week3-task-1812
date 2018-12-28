@@ -1,0 +1,86 @@
+body{
+    background-image:  url("background.jpg");
+    height: auto; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main_heading{
+    margin: 40px 0 40px 290px;
+    color: white
+}
+.main_div{
+        /* background-color: aliceblue; */
+        /* background-color: GREEN; */
+        width: 1000px;
+        height: auto;
+}
+.left_div{
+    background-color: white;
+    opacity: 0.8;
+    width: 480px;
+    height: 350px;
+    margin: 10px 10px 10px 10px;
+    padding: 0;
+    float: left;
+    border-radius: 15px;
+}
+.right_div{
+    background-color: white;
+    opacity: 0.8;
+    width: 480px;
+    height: 350px;
+    margin: 10px 10px 10px 10px;
+    padding: 0;
+    float: left;
+    border-radius: 15px;
+}
+.table_module1{
+    width: fit-content;
+    height: fit-content;
+    margin: 25px 0 0 75px;
+}
+.input_Field{
+    border-radius: 10px;
+    height: 20px;
+    padding-left: 10px;
+}
+.label{
+    color: black;
+}
+.dropdown{
+    width: 185px;
+    height: 28px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.image_size{
+    width: 20px;
+    margin: 0 0 0 10px;
+    padding-top: 5px;
+}
+.display_P{
+    color: black;
+    font-size: 10px;
+}
+.barcode_size{
+    width: 300px;
+    height: 80px;
+    margin: 25px 0 0 5px;
+
+}
+.p_td{
+    height: 20px;
+}
+.button{
+    width: fit-content;
+    height: fit-content;
+    margin: 0 0 0 385px ;
+}
+.btn_class{
+    height: 40px;
+    width: 235px;
+    border-radius: 25px;
+    margin: 85px  0 0 0;
+}

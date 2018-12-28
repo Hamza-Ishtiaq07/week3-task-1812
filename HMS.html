@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="HMS.css">
+    <title>HMS</title>
+</head>
+<body>
+    <h1 class="main_heading">Hospital Management System</h1>
+    <div class="main_div">
+        <div class="left_div">
+            <table class="table_module1">
+                <tr>
+                    <td>
+                        <label class="label">Patient Name</label>
+                    </td>
+                    <td>
+                        <input class="input_Field" id="patient_name" type="text" name="fullname" placeholder="Type Here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Father/Husband Name</label>
+                    </td>
+                    <td>
+                        <input class="input_Field" id="f_name" type="text" name="fullname" placeholder="Type Here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">MR Number</label>
+                    </td>
+                    <td>
+                        <input class="input_Field" id="mr_number" type="text" name="fullname" placeholder="Type Here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Date</label>
+                    </td>
+                    <td class="p_td">
+                        <!-- <p class="display_P" id="date"></p> -->
+                        <input class="input_Field" id="date" type="text" name="fullname" placeholder="Type Here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Time</label>
+                    </td>
+                    <td>
+                            <!-- <p class="display_P" id="time"></p> -->
+                        <input class="input_Field" id="time" type="text" name="fullname" placeholder="Type Here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">NIC Number</label>
+                    </td>
+                    <td>
+                        <input class="input_Field" id="nic_number" type="text" name="fullname" placeholder="Type Here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Ward Number</label>
+                    </td>
+                    <td>
+                        <select id="wd" class="dropdown">
+                            <option value="none">Select Ward</option>
+                            <option value="ward1">ward 1</option>
+                            <option value="ward2">ward 2</option>
+                            <option value="ward3">ward 3</option>
+                            <option value="ward4">ward 4</option>
+                            <option value="ward5">ward 5</option>
+                            <option value="ward6">ward 6</option>
+                            <option value="ward7">ward 7</option>
+                            <option value="ward8">ward 8</option>
+                          </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="label">Diseases Dignose</label>
+                    </td>
+                    <td>
+                        <input class="input_Field" id="disease_dignose" onfocus="if(this.value=='A new value') this.value='';">
+                    </td>
+                    <td>
+                        <img class="image_size" src="add.png" alt="add Image" onclick="addTo()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <p class="display_P" id="show_disease"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Available Doctors</label>
+                    </td>
+                    <td>
+                        <select class="dropdown" id="selectNumber">
+                            <option>Choose a Doctor</option>
+                          </select>
+                    </td>
+                    <td>
+                            <img class="image_size" src="reload.png" alt="add Image" onclick="ReloadDoc()" />
+                    </td>
+                </tr>
+                <!-- <tr>
+                        <td colspan="3">
+                                <button onclick="myFunction()">GENERATE</button>       
+                        </td>
+                </tr> -->
+               
+              
+            </table>
+        </div>
+        <div class="right_div">
+            <table class="table_module1">
+                    <tr>
+                            <td>
+                                <label class="label">Appointment Time</label>
+                            </td>
+                            <td>
+                                <input class="input_Field" id="app_time" type="text" name="fullname" placeholder="Type Here">
+                            </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                <label class="label">Appointment Fee</label>
+                            </td>
+                            <td>
+                                <input class="input_Field" id="app_fee" type="text" name="fullname" placeholder="Type Here">
+                            </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                <label class="label">Fee Option</label>
+                            </td>
+                            <td>
+                                    <select id="pay_type" class="dropdown">
+                                            <option value="none">Select Option</option>
+                                            <option value="Online">Online</option>
+                                            <option value="Credit/Debit Card">Credit/Debit Card</option>
+                                            <option value="Cash">Cash</option>
+                                          </select> 
+                            </td>
+                    </tr>
+                    <tr>
+                            <td colspan="3">
+                                <img class="barcode_size" src="Barcode.jpg" alt="barcode">
+                            </td>
+                        </tr>
+                   
+            </table>
+        </div>
+
+        <div class="button">
+                <button class="btn_class" onclick="myFunction()">GENERATE</button>    
+        </div>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        now = new Date();
+        randomNum = '';
+        randomNum += Math.round(Math.random() * 9);
+        randomNum += Math.round(Math.random() * 9);
+        randomNum += now.getTime();
+        window.onload = function () {
+            document.getElementById("mr_number").value = randomNum.substr(0,8); // HERE ;)
+        }
+
+        var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+
+  var h = today.getHours();
+  var m = today.getMinutes();
+
+  if(dd<10) {
+      dd = '0'+dd
+  } 
+
+  if(mm<10) {
+      mm = '0'+mm
+  } 
+  
+  if(h<10){
+      h = '0'+h
+  }
+
+  if(m<10){
+      m = '0'+m 
+  }
+
+  
+  today = yyyy + '/' + mm + '/' + dd;
+//   console.log(today);
+  document.getElementById("date").value = today;
+  var time = h + ':' + m ;
+  document.getElementById("time").value = time;
+
+
+        
+var select = document.getElementById("selectNumber"); 
+var options = ["Dr.Adil", "Dr.Shahzad", "Dr.Nadia", "Dr.Ambreen", "Dr.Gul Khan"]; 
+var i = 0;
+function ReloadDoc(){
+        while(i < options.length){
+    var opt = options[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+        i++;
+        }
+}  
+
+
+    var myarr = [];
+ function addTo() {
+    if(myarr.length < 6){
+        myarr.push(document.getElementById("disease_dignose").value);
+        document.getElementById("show_disease").innerHTML = myarr;
+//    console.log(myarr); //to confirm it has been added to the array
+    }else{
+        document.getElementById("show_disease").innerHTML = myarr + ' !!Limit Exceed';
+    }
+}
+
+
+
+var pName;
+var fName;
+var MrNO;
+var Datee;
+var timee;
+var nicNo;
+var ward;
+var diseases;
+var  AvailDoc;
+var AppTime;
+var AppFee;
+var FeeOption;
+
+function getname(){
+    return document.getElementById("patient_name").value;
+}
+
+function getFName(){
+    return document.getElementById("f_name").value;
+}
+function getMrNo(){
+    return document.getElementById("mr_number").value;
+}
+function getDatee(){
+    return document.getElementById("date").value;
+}
+function gettimee(){
+    return document.getElementById("time").value;
+}
+function getNIC(){
+    return document.getElementById("nic_number").value;
+}
+function getNIC(){
+    return document.getElementById("nic_number").value;
+}
+// function getWard(){
+//     var e = document.getElementById("ward");
+// var strUser = e.options[e.selectedIndex].value;
+// return strUser;
+// }
+function getWd(){
+    var e = document.getElementById("wd");
+var strUser = e.options[e.selectedIndex].value;
+return strUser;
+}
+
+function getDignose(){
+    return document.getElementById("show_disease").value;
+}
+function getDoctor(){
+    var e = document.getElementById("selectNumber");
+var strUser = e.options[e.selectedIndex].value;
+return strUser;
+}
+
+function getApptime(){
+    return document.getElementById("app_time").value;
+}
+function getAppFee(){
+    return document.getElementById("app_fee").value;
+}
+function getpayMethod(){
+    // return document.getElementById("pay_type").value;
+    var e = document.getElementById("pay_type");
+var strUser = e.options[e.selectedIndex].value;
+return strUser;
+}
+
+
+
+
+function myFunction(){
+    console.clear();
+    pName = getname();
+    console.log("Patient Name : " + pName);
+
+    fName = getFName();
+    console.log("Father/Husband Name : " + fName);
+
+    MrNO = getMrNo();
+    console.log("MR Number : " + MrNO);
+
+    Datee = getDatee();
+    console.log("Date : " + Datee);
+
+    timee = gettimee();
+    console.log("Time : " + timee);
+
+    nicNo = getNIC();
+    console.log("NIC Number : " + nicNo);
+
+    ward = getWd();
+    console.log("Ward : " + ward);
+
+    // diseases = getDignose();
+    console.log("Patient Diseases : " + myarr);
+
+
+    AvailDoc = getDoctor();
+    console.log("Doctor (On Charge) : " + AvailDoc);
+
+
+  AppTime = getApptime();
+    console.log("Appointment Time : " + AppTime);
+
+  AppFee = getAppFee();
+    console.log("Appointment Fee : " + AppFee);
+
+  FeeOption = getpayMethod();
+    console.log("Paying Method : " + FeeOption);
+
+}
+
+
+
+    
+    </script>
+</body>
+</html>
